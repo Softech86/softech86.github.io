@@ -8,7 +8,7 @@
     "build": "cd server && cnpm install && npm run generate",
     "git": "git add . && git commit -m 'auto push' && git push origin develop",
     "push": "push-dir --dir='server/dist' --branch=master --cleanup",
-    "deploy": "node build.js && npm run push"
+    "deploy": "npm start && npm run push"
   },
   "repository": {
     "type": "git",
