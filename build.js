@@ -70,20 +70,22 @@ function printTree(tree, tab = '', last=false) {
     }
 }
 
-let {2: src, 3:dst} = process.argv
-src = src || './markdown'
-dst = dst || './server/static/markdown'
+let tree
+const src = './markdown'
+dsts = ['./server/static/markdown', './server/dist/markdown']
 
-console.log(`Moving file from ${src} to ${dst}...`)
+console.log(`Moving file from ${src} to ${dsts}...`)
 
-clear(dst)
-const tree = copy(src, dst)
+dsts.forEach(dst => {
+    clear(dst)
+    tree = copy(src, dst)
 
-if (fs.existsSync(dst)) {
-    const treePath = path.join(dst, 'tree.json')
-    fs.writeFileSync(treePath, JSON.stringify(tree))
-    // printTree(tree)
-}
+    if (fs.existsSync(dst)) {
+        const treePath = path.join(dst, 'tree.json')
+        fs.writeFileSync(treePath, JSON.stringify(tree))
+        // printTree(tree)
+    }
+})
 
 console.log(`Files moved below:`)
 printTree(tree)
