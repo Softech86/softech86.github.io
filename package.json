@@ -5,7 +5,7 @@
   "main": "build.js",
   "scripts": {
     "start": "node build.js && npm run build",
-    "build": "cd server && cnpm install && npm run build",
+    "build": "cd server && cnpm install && npm run generate",
     "git": "git add . && git commit -m 'auto push' && git push origin develop",
     "push": "push-dir --dir='server/dist' --branch=master --cleanup",
     "deploy": "node build.js && npm run push"
