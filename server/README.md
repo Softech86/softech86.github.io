@@ -1,4 +1,4 @@
-# itstartstosnow
+# server
 
 > Nuxt.js project
 

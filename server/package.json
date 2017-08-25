@@ -1,8 +1,8 @@
 {
-  "name": "itstartstosnow",
+  "name": "server",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "p_yfeibai <p_yfeibai@tencent.com>",
+  "author": "softech86 <softech86@163.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "code-prettify": "^0.1.0",
+    "highlight.js": "^9.12.0",
     "marked": "^0.3.6",
     "nuxt": "^1.0.0-rc3"
   },
@@ -27,8 +27,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "highlight.js": "^9.12.0",
-    "push-dir": "^0.4.1"
+    "eslint-plugin-standard": "^3.0.1"
   }
 }

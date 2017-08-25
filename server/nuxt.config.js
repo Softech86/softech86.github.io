@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'itstartstosnow',
+    title: 'server',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,7 +24,6 @@ module.exports = {
     /*
     ** Run ESLINT on save
     */
-    vendor: ['axios'],
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
