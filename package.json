@@ -8,7 +8,7 @@
     "build": "cd server && cnpm install && cnpm build",
     "push": "push-dir --dir='server/dist' --branch=master --cleanup",
     "deploy": "npm start && npm run git && npm run push",
-    "git": "git add . && git commit -m 'auto push' && git push"
+    "git": "git add . && git commit -m 'auto push' && git push origin develop"
   },
   "repository": {
     "type": "git",
