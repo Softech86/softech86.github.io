@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node build.js && npm run build",
     "build": "cd server && cnpm install && cnpm build",
-    "deploy": "push-dir --dir='server/dist' --branch=master --cleanup"
+    "push": "push-dir --dir='server/dist' --branch=master --cleanup",
+    "deploy": "npm start && npm run push"
   },
   "repository": {
     "type": "git",
