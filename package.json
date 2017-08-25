@@ -5,10 +5,10 @@
   "main": "build.js",
   "scripts": {
     "start": "node build.js && npm run build",
-    "build": "cd server && cnpm install && cnpm build",
+    "build": "cd server && cnpm install && npm run build",
+    "git": "git add . && git commit -m 'auto push' && git push origin develop",
     "push": "push-dir --dir='server/dist' --branch=master --cleanup",
-    "deploy": "npm start && npm run git && npm run push",
-    "git": "git add . && git commit -m 'auto push' && git push origin develop"
+    "deploy": "npm start && npm run git && npm run push"
   },
   "repository": {
     "type": "git",
