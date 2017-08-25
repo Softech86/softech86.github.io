@@ -72,7 +72,7 @@ function printTree(tree, tab = '', last=false) {
 
 let tree
 const src = './markdown'
-dsts = ['./server/static/markdown', './server/dist/markdown']
+dsts = ['./dist/static/markdown']
 
 console.log(`Moving file from ${src} to ${dsts}...`)
 
