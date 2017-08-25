@@ -1,0 +1,21 @@
+{
+  "name": "softech86",
+  "version": "1.0.0",
+  "description": "A personal blog",
+  "main": "build.js",
+  "scripts": {
+    "start": "node build.js && npm run build",
+    "build": "cd server && cnpm install && cnpm build",
+    "deploy": "push-dir --dir='server/dist' --branch=master --cleanup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Softech86/softech86.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Softech86/softech86.github.io/issues"
+  },
+  "homepage": "https://github.com/Softech86/softech86.github.io#readme"
+}

@@ -59,10 +59,10 @@ function clear(_dst, _path = '') {
 function printTree(tree, tab = '', last=false) {
     if (tree.isFile) {
         // file
-        console.log((tab + (last ? '└── ' : '├── ') + tree.filename).slice(4).padEnd(20) + tree.mtime)
+        console.log((tab + (last ? '└── ' : '├── ') + tree.filename).slice(4).padEnd(40) + tree.mtime)
     } else {
         // folder
-        console.log((tab + (last ? '└── ' : '├── ') + tree.dirname).slice(4).padEnd(20) + tree.mtime)
+        console.log((tab + (last ? '└── ' : '├── ') + tree.dirname).slice(4).padEnd(40) + tree.mtime)
         tree.children.forEach((tc, i) => {
             const clast = tree.children.length === i + 1
             printTree(tc, tab + (last ? '    ' : '│   '), clast)
@@ -74,6 +74,8 @@ let {2: src, 3:dst} = process.argv
 src = src || './markdown'
 dst = dst || './server/static/markdown'
 
+console.log(`Moving file from ${src} to ${dst}...`)
+
 clear(dst)
 const tree = copy(src, dst)
 
@@ -82,3 +84,6 @@ if (fs.existsSync(dst)) {
     fs.writeFileSync(treePath, JSON.stringify(tree))
     // printTree(tree)
 }
+
+console.log(`Files moved below:`)
+printTree(tree)
