@@ -7,7 +7,8 @@
     "start": "node build.js && npm run build",
     "build": "cd server && cnpm install && cnpm build",
     "push": "push-dir --dir='server/dist' --branch=master --cleanup",
-    "deploy": "npm start && npm run push"
+    "deploy": "npm start && npm run git && npm run push",
+    "git": "git add . && git commit --allow-empty-message && git push"
   },
   "repository": {
     "type": "git",
