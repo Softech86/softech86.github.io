@@ -8,7 +8,9 @@
     "build": "cd server && cnpm install && npm run generate",
     "git": "git add . && git commit -m 'auto push' && git push origin develop",
     "push": "push-dir --dir='dist' --branch=master --cleanup",
-    "deploy": "node build.js && npm run push"
+    "deploy": "npm run pack && npm run font && npm run push",
+    "pack": "node build.js && node dist/static/poem/generate.js",
+    "font": "cd font-spider && bash build.sh"
   },
   "repository": {
     "type": "git",
