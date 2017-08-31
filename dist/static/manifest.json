@@ -1,6 +1,6 @@
 {
-  "name": "Think and work",
-  "short_name": "Sylvia blog",
+  "name": "Code-Design-Music",
+  "short_name": "Softech Blog",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",
@@ -16,5 +16,5 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#975A58"
+  "theme_color": "#5085A4"
 }
