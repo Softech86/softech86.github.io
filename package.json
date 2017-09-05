@@ -10,7 +10,7 @@
     "push": "push-dir --dir='dist' --branch=master --cleanup",
     "deploy": "npm run pack && npm run font && npm run git && npm run push",
     "pack": "node build.js && node dist/static/poem/generate.js",
-    "font": "cd font-spider && bash build.sh"
+    "font": "cd font-spider && start build.bat"
   },
   "repository": {
     "type": "git",
