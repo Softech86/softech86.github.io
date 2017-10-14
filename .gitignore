@@ -1,2 +1,5 @@
 !/dist
+!/dist/static
+!/dist/static/poem
+!/dist/static/markdown
 .DS_Store
