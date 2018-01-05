@@ -4,11 +4,10 @@
   "description": "A personal blog",
   "main": "build.js",
   "scripts": {
-    "start": "npm run build && node build.js",
-    "build": "cd server && cnpm install && npm run generate",
     "git": "git add . && git commit -m 'auto push' && git push",
     "push": "push-dir --dir='dist' --branch=master --cleanup",
-    "deploy": "npm run pack && npm run font && npm run git && npm run push",
+    "update": "npm run pack && npm run font && npm run git",
+    "deploy": "npm run update && npm run push",
     "pack": "node build.js && node dist/static/poem/generate.js",
     "font": "cd font-spider && bash build.sh"
   },
