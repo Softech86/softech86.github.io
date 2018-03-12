@@ -4,12 +4,10 @@
   "description": "A personal blog",
   "main": "build.js",
   "scripts": {
+    "copy": "rm -rf dist && cp -r ../softech86.github.build/dist ./dist",
     "git": "git add . && git commit -m 'auto push' && git push",
     "push": "push-dir --dir='dist' --branch=master --cleanup",
-    "update": "npm run pack && npm run font && npm run git",
-    "deploy": "npm run update && npm run push",
-    "pack": "node build.js && node dist/static/poem/generate.js",
-    "font": "cd font-spider && bash build.sh"
+    "deploy": "npm run copy && npm run git && npm run push"
   },
   "repository": {
     "type": "git",
