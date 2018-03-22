@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.bootcss.com/three.js/90/three.min.js"></script>
+  <script src="https://cdn.bootcss.com/dat-gui/0.7.1/dat.gui.min.js"></script>
+  <!--<script src="https://cdn.bootcss.com/vue/2.5.15/vue.js"></script>-->
+</head>
+<body>
+  <div id="mainCanvas">
+
+  </div>
+
+  <script>
+    var scene, camera, renderer;
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight);
+    camera.position.set(3,3,3);
+    camera.lookAt(new THREE.Vector3(0,0,0));
+    scene.add(camera);
+
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5, 1, 1),
+      new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 1 } )
+    );
+    plane.rotation.x = -Math.PI / 2;
+    // plane.position.y = -1;
+    plane.receiveShadow = true;
+    scene.add(plane);
+
+
+    const controls = {
+      lightX: 0,
+      lightY: 100,
+      lightZ: 75,
+    }
+    var gui = new dat.GUI();
+    gui.add(controls, 'lightX', -100, 100)
+    gui.add(controls, 'lightY', -100, 100)
+    gui.add(controls, 'lightZ', -100, 100)
+    // gui.add(controls, 'num', 2, 10).step(1)
+
+
+    // function pointsGenerator(radius, num) {
+    //   var points = [];
+    //   var θ= (2 * Math.PI / 360) * (360 / num);
+    //   for (var i = 0; i < num; i++) {
+    //     var x = radius * Math.cos(θ * i);
+    //     var z = radius * Math.sin(θ * i);
+    //     var point = new THREE.Vector3(x, .5, z);
+    //     points.push(point);
+    //   }
+    //   return points;
+    // }
+
+    // var lineMaterial = new THREE.LineDashedMaterial({color: 'black', linewidth: 1});
+    //
+    // var t = 0;
+    // var radius = 2;
+    // var division = 64;
+    // var linesToRender = [];
+    // var basePoints = pointsGenerator(radius, division);
+    // var dynamicPoints = pointsGenerator(radius, division);
+    //
+    // for (var i = 0;i < dynamicPoints.length; i++) {
+    //   dynamicPoints[i].grow = true;
+    // }
+
+
+    var ambient = new THREE.AmbientLight( 0xffffff, .3 );
+    scene.add( ambient );
+
+
+
+
+    // var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    // directionalLight.position.set(0, 100, 100);
+    // scene.add(directionalLight);
+
+    var light = new THREE.DirectionalLight( 0xaabbff, 0.3 );
+    light.position.x = 300;
+    light.position.y = 250;
+    light.position.z = -500;
+    scene.add( light );
+    // var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    // scene.add( directionalLight );
+
+
+    // var spotLight = new THREE.SpotLight( 0xffffff );
+    // spotLight.position.set( 100, 1000, 100 );
+    //
+    // spotLight.castShadow = true;
+    //
+    // spotLight.shadow.mapSize.width = 1024;
+    // spotLight.shadow.mapSize.height = 1024;
+    //
+    // spotLight.shadow.camera.near = 500;
+    // spotLight.shadow.camera.far = 4000;
+    // spotLight.shadow.camera.fov = 30;
+    //
+    // scene.add( spotLight );
+
+    function stageFactory() {
+      var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+      var material = new THREE.MeshLambertMaterial( {
+        color: 0xcccccc,
+        flatShading: true
+      } );
+      var cube = new THREE.Mesh( geometry, material );
+      cube.castShadow = true
+      scene.add( cube );
+      return cube
+    }
+
+    var cubes = []
+
+
+    renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+    renderer.setClearColor(0x000000);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+
+
+    function animate() {
+
+      cubes.push(stageFactory())
+
+
+      // directionalLight.position.set( controls.lightX, controls.lightY, controls.lightZ );
+      // t += 0.1;
+      //
+      // if (linesToRender.length > 0) {
+      //   for (var i = 0;i < linesToRender.length; i++) {
+      //     scene.remove(linesToRender[i]);
+      //   }
+      // }
+      //
+      // linesToRender = [];
+      // for (var j = 0;j < division; j++) {
+      //   var lineGeometry = new THREE.Geometry();
+      //   var unit = 2 * controls.num * Math.PI / division;
+      //   // if ((t + unit * j) / Math.PI > j) {
+      //     dynamicPoints[j].y = .5 - Math.sin(t + unit * j) / 2;
+      //   // }
+      //   lineGeometry.vertices.push(basePoints[j]);
+      //   lineGeometry.vertices.push(dynamicPoints[j]);
+      //   var line = new THREE.Line(lineGeometry, lineMaterial);
+      //   linesToRender.push(line);
+      // }
+      //
+      // for (var m = 0;m < linesToRender.length; m++) {
+      //   scene.add(linesToRender[m]);
+      // }
+
+
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+  </script>
+
+</body>
+</html>
