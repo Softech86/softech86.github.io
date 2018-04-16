@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "FZDaBiaoSong-B06S";
+    src: url("song.eot"); /* IE9 */
+    src: url("song.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("song.woff") format("woff"), /* chrome, firefox */
+    url("song.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("song.svg#FZDaBiaoSong-B06S") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+
