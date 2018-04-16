@@ -1,0 +1,59 @@
+Arguments: 
+  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/bin/yarn deploy
+
+PATH: 
+  /Users/leobai/anaconda2/bin:/usr/local/opt/ipython@5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.10.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "softech86",
+    "version": "1.0.0",
+    "description": "A personal blog",
+    "main": "build.js",
+    "scripts": {
+      "copy": "rm -rf dist && cp -r ../softech86.github.build/dist ./dist",
+      "git": "git add . && git commit -m 'auto push' && git push",
+      "push": "push-dir --dir='dist' --branch=master --cleanup",
+      "deploy": "npm run copy && npm run git && npm run push"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Softech86/softech86.github.io.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Softech86/softech86.github.io/issues"
+    },
+    "homepage": "https://github.com/Softech86/softech86.github.io#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c npm run copy && npm run git && npm run push
+  Directory: /Users/leobai/Code/softech86.github.io
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
