@@ -7,6 +7,7 @@
     "copy": "rm -rf dist && cp -r ../softech86.github.build/dist ./dist",
     "git": "git add . && git commit -m 'auto push' && git push",
     "push": "push-dir --dir='dist' --branch=master --cleanup",
+    "ssh": "scp -r dist/ root@120.27.121.123:~/softech86.github.io",
     "deploy": "npm run copy && npm run git && npm run push"
   },
   "repository": {
